@@ -35,21 +35,21 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		              KC_P0,   KC_PDOT, KC_PENT
 	),
 	[1] = LAYOUT_numpad_3x8(
-		KC_NUM,       KC_NO,   KC_NO,   KC_NO,
+		KC_NUM,       TG(2),   TG(3),   KC_NO,
 		KC_NO,        KC_NO,   KC_NO,
 		KC_NO,        KC_NO,   KC_NO,   KC_NO,
-		KC_TRNS,      TG(2),   TG(3),
+		KC_TRNS,      TO(2),   TO(3),
 		              TO(0),   KC_TRNS, KC_TRNS
 	),
 	[2] = LAYOUT_numpad_3x8(
-		OSL(1),       KC_F20,  KC_MUTE, KC_VOLD,
-		KC_LGUI,      KC_RGUI, KC_APP,
+		OSL(1),       KC_TRNS, KC_TRNS, KC_VOLD,
+		KC_NO,        KC_NO,   KC_NO,
 		KC_TRNS,      KC_TRNS, KC_TRNS, KC_VOLU,
-		PB_1,         PB_2,    PB_3,
-		              TO(0),   KC_TRNS, KC_TRNS
+		KC_LGUI,      KC_RGUI, KC_APP,
+		              TO(0),   KC_MUTE, KC_F20
 	),
 	[3] = LAYOUT_numpad_3x8(
-		LT(1, OSL(1)),DB_TOGG, KC_NO,   QK_BOOT,
+		OSL(1),       DB_TOGG, KC_NO,   QK_BOOT,
 		BL_TOGG,      BL_ON,   BL_OFF,
 		EE_CLR,       KC_NO,   KC_NO,   KC_NO,
 		KC_TRNS,      KC_TRNS, KC_TRNS,
