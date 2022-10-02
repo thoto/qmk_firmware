@@ -59,11 +59,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define NO_ACTION_ONESHOT
 
 /* Bootmagic Lite key configuration */
-//#define BOOTMAGIC_LITE_ROW 0
-//#define BOOTMAGIC_LITE_COLUMN 0
 #define BOOTMAGIC_LITE_ROW 2
 #define BOOTMAGIC_LITE_COLUMN 6
 
-#define BACKLIGHT_PIN C13
-#define BACKLIGHT_DRIVER software
+#define BACKLIGHT_DRIVER pwm
 // #define BACKLIGHT_BREATHING

@@ -22,13 +22,11 @@
 
 #define MATRIX_COL_PINS { A0, A1, A2, A3, A4, A5, A6, A7 }
 #define MATRIX_ROW_PINS { B7, B8, B9 }
-#define UNUSED_PINS
 
-#define BACKLIGHT_PIN         C13
-//#define BACKLIGHT_PWM_DRIVER  PWMD2
-#define BACKLIGHT_PWM_DRIVER  PWMD3
-// #define BACKLIGHT_PWM_CHANNEL 1
-#define BACKLIGHT_PWM_CHANNEL 3
+// #define BACKLIGHT_PIN         C13 would be internal LED
+#define BACKLIGHT_PIN         A8
+#define BACKLIGHT_PWM_DRIVER  PWMD1
+#define BACKLIGHT_PWM_CHANNEL 1
 
 // #define RGB_DI_PIN A1
 

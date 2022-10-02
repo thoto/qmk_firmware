@@ -16,7 +16,8 @@
 
 #include QMK_KEYBOARD_H
 
-/* const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
+/*** default numpad: single layer
+const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [0] = LAYOUT_numpad_3x8(
         KC_NLCK, KC_PSLS, KC_PAST, KC_PMNS,
         KC_P7,   KC_P8,   KC_P9,
@@ -24,7 +25,9 @@
         KC_P1,   KC_P2,   KC_P3,
                  KC_P0,   KC_PDOT, KC_PENT
     )
-}; */
+};
+*/
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	[0] = LAYOUT_numpad_3x8(
 //		LT(1, KC_NUM),KC_PSLS, KC_PAST, KC_PMNS,
@@ -56,3 +59,31 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		              TO(0),   KC_TRNS, KC_TRNS
 	)
 };
+
+void keyboard_pre_init_user(void) {
+	// layer leds
+	setPinOutput(A9);
+	setPinOutput(A10);
+}
+
+layer_state_t layer_state_set_user(layer_state_t state) {
+	switch (get_highest_layer(state)) {
+		case 1: // layer select
+			writePinHigh(A9);
+			writePinHigh(A10);
+		break;
+		case 2: // sound and macro layer
+			writePinLow(A9);
+			writePinHigh(A10);
+			break;
+		case 3: // config layer
+			writePinHigh(A9);
+			writePinLow(A10);
+			break;
+		default: // base layer (i.e. 0) numpad
+			writePinLow(A9);
+			writePinLow(A10);
+			break;
+	}
+	return state;
+}
